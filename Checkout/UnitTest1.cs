@@ -5,7 +5,14 @@ namespace Checkout
         [Fact]
         public void ScanItem_Success()
         {
+            //Arrange
+            ICheckOut checkout = new Checkout();
 
+            //Act
+            checkout.Scan("A");
+
+            //Assert
+            Assert.Equal("A", checkout.GetTotalPrice());
         }
     }
 }
