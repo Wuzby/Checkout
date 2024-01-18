@@ -8,12 +8,14 @@ namespace Checkout
 {
     internal class Main : ICheckOut
     {
-        public void CheckOut()
+
+
+        public int GetTotalPrice()
         {
             throw new NotImplementedException();
         }
 
-        public int GetTotalPrice()
+        public void Scan(string item)
         {
             throw new NotImplementedException();
         }

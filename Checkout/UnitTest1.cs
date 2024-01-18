@@ -6,13 +6,13 @@ namespace Checkout
         public void ScanItem_Success()
         {
             //Arrange
-            ICheckOut checkout = new Checkout();
+            Main main = new Main();
 
             //Act
-            checkout.Scan("A");
+            main.Scan("A");
 
             //Assert
-            Assert.Equal("A", checkout.GetTotalPrice());
+            Assert.Equal(50, main.GetTotalPrice());
         }
     }
 }

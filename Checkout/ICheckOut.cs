@@ -2,7 +2,7 @@
 {
     internal interface ICheckOut
     {
-        void CheckOut();
+        void Scan(string item);
         int GetTotalPrice();
     }
 }
