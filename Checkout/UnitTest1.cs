@@ -3,7 +3,7 @@ namespace Checkout
     public class UnitTest1
     {
         [Fact]
-        public void ScanItem_Success()
+        public void Scan_AddToTotal_Success()
         {
             //Arrange
             Main main = new Main();
