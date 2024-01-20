@@ -28,8 +28,10 @@ namespace Checkout
             main.Scan("C");
             main.Scan("D");
 
+            var result = main.GetTotalPrice();
+
             //Assert
-            Assert.Equal(115, main.GetTotalPrice());
+            Assert.Equal(115, result);
         }
     }
 }
