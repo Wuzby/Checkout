@@ -39,6 +39,11 @@ namespace Checkout
                 {
                     itemQuantity[item] = 1;
                 }
+
+            }
+            else
+            {
+                throw new ArgumentException("Item is not present in the Inventroy");
             }
         }
 

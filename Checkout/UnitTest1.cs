@@ -87,5 +87,19 @@ namespace Checkout
             //Assert
             Assert.Equal(175, result);
         }
+
+        [Fact]
+        public void Scan_ItemNotPresent_Fail()
+        {
+            //Arrange
+            Main main = new Main();
+            string itemX = "X";
+
+            //Act
+            Action action = () => main.Scan(itemX);
+
+            //Assert
+            Assert.Throws<ArgumentException>(action);
+        }
     }
 }
