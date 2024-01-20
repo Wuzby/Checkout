@@ -33,5 +33,59 @@ namespace Checkout
             //Assert
             Assert.Equal(115, result);
         }
+
+        [Fact]
+        public void Scan_AddToTotalSeveralItemsDuplicates_Success()
+        {
+            //Arrange
+            Main main = new Main();
+
+            //Act
+            main.Scan("A");
+            main.Scan("A");
+            main.Scan("C");
+            main.Scan("C");
+
+            var result = main.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(140, result);
+        }
+
+        [Fact]
+        public void Scan_AddToTotalSeveralItemsDuplicates_ApplyDiscount_Success()
+        {
+            //Arrange
+            Main main = new Main();
+
+            //Act
+            main.Scan("A");
+            main.Scan("A");
+            main.Scan("A");
+
+            var result = main.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(130, result);
+        }
+
+        [Fact]
+        public void Scan_AddToTotalSeveralItemsDuplicates_ApplyDiscountForTwoItems_Success()
+        {
+            //Arrange
+            Main main = new Main();
+
+            //Act
+            main.Scan("A");
+            main.Scan("A");
+            main.Scan("A");
+            main.Scan("B");
+            main.Scan("B");
+
+            var result = main.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(175, result);
+        }
     }
 }

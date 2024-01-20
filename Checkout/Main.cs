@@ -51,15 +51,36 @@ namespace Checkout
                 string item = scannedItem.Key;
                 int count = scannedItem.Value;
 
-                if(itemPrices.TryGetValue(item, out int itemPrice))
+                if(itemPrices.ContainsKey(item))
                 {
-                    total += count * itemPrice;
+                    int itemPrice = itemPrices[item];
+                    total += CalculateTotalWithDiscount(item, itemPrice, count);
                 }
             
             }
 
             return total;
 
+        }
+
+        private int CalculateTotalWithDiscount(string item, int itemPrice, int itemCount)
+        {
+            if (item == "A" && itemCount >= 3)
+            {
+                int discountedPrice = itemCount / 3;
+                return discountedPrice * 130 + (itemCount % 3) * itemPrice;
+
+            }
+            else if (item == "B" && itemCount >= 2)
+            {
+                int discountedPrice = itemCount / 2;
+                return discountedPrice * 45 + (itemCount % 2) * itemPrice;
+
+            }
+            else
+            {
+                return itemPrice * itemCount;
+            }
         }
 
     }
