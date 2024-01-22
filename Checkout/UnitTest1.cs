@@ -70,7 +70,7 @@ namespace Checkout
         }
 
         [Fact]
-        public void Scan_AddToTotalSeveralItemsDuplicates_ApplyDiscountForTwoItems_Success()
+        public void Scan_AddToTotalSeveralItemsDuplicates_ApplyDiscountForTwoItemsUnique_Success()
         {
             //Arrange
             Main main = new Main();
